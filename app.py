@@ -1,18 +1,24 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import os
 
 app = Flask(__name__)
 
-alunos = [
+usuarios = [
     {"id": 1, "nome": "Ana"},
     {"id": 2, "nome": "Carlos"},
     {"id": 3, "nome": "Carol"}
 ]
 
-@app.route("/", methods=["GET"])
-def home():
-    return jsonify(alunos)
+@app.route("/usuarios", methods=["GET"])
+def listar_usuarios():
+    return jsonify(usuarios)
+
+@app.route("/usuarios", methods=["POST"])
+def criar_usuario():
+    novo = request.json
+    novo['id'] = len(usuarios) + 1
+    usuarios.append(novo)
+    return jsonify(novo), 201  
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True)
