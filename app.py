@@ -8,6 +8,24 @@ livros = [
         "titulo": "Dom Casmurro",
         "autor": "Machado de Assis",
         "ano": 1899
+    },
+    {
+        "id": 2,
+        "titulo": "O Hobbit",
+        "autor": "J.R.R. Tolkien",
+        "ano": 1937
+    },
+    {
+        "id": 3,
+        "titulo": "1984",
+        "autor": "George Orwell",
+        "ano": 1949
+    },
+    {
+        "id": 4,
+        "titulo": "A Revolução dos Bichos",
+        "autor": "George Orwell",
+        "ano": 1945
     }
 ]
 
