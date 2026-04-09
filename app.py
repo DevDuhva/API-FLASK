@@ -2,38 +2,84 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-usuarios = [
-    {"id": 1, "nome": "Ana"},
-    {"id": 2, "nome": "João"}
+livros = [
+    {
+        "id": 1,
+        "titulo": "Dom Casmurro",
+        "autor": "Machado de Assis",
+        "ano": 1899
+    }
 ]
 
-@app.route('/usuarios', methods=['GET'])
-def listar_usuarios():
-    return jsonify(usuarios)
+@app.route('/livros', methods=['GET'])
+def listar_livros():
+    return jsonify(livros)
 
-@app.route('/usuarios', methods=['POST'])
-def criar_usuario():
-    novo = request.json
-    novo['id'] = len(usuarios) + 1
-    usuarios.append(novo)
-    return jsonify(novo), 201
 
-@app.route('/usuarios/<int:id>', methods=['PUT'])
-def atualizar_usuario(id):
-    for usuario in usuarios:
-        if usuario['id'] == id:
+@app.route('/livros', methods=['POST'])
+def cadastrar_livro():
+    dados = request.json
+
+    if not dados.get('titulo') or not dados.get('autor'):
+        return {"erro": "Título e autor são obrigatórios"}, 400
+
+
+    if 'ano' in dados and dados['ano'] < 0:
+        return {"erro": "Ano inválido"}, 400
+
+
+    for l in livros:
+        if l['titulo'].lower() == dados['titulo'].lower():
+            return {"erro": "Livro já cadastrado"}, 400
+
+    novo_livro = {
+        "id": len(livros) + 1,
+        "titulo": dados['titulo'],
+        "autor": dados['autor'],
+        "ano": dados.get('ano', None)
+    }
+
+    livros.append(novo_livro)
+
+    return {
+        "mensagem": "Livro cadastrado com sucesso",
+        "livro": novo_livro
+    }, 201
+
+
+
+@app.route('/livros/<int:id>', methods=['PUT'])
+def atualizar_livro(id):
+    for livro in livros:
+        if livro['id'] == id:
             dados = request.json
-            usuario['nome'] = dados.get('nome', usuario['nome'])
-            return jsonify(usuario)
-    return {"erro": "Usuário não encontrado"}, 404
 
-@app.route('/usuarios/<int:id>', methods=['DELETE'])
-def deletar_usuario(id):
-    for usuario in usuarios:
-        if usuario['id'] == id:
-            usuarios.remove(usuario)
-            return {"mensagem": "Usuário removido"}
-    return {"erro": "Usuário não encontrado"}, 404
+            # validação de ano
+            if 'ano' in dados and dados['ano'] < 0:
+                return {"erro": "Ano inválido"}, 400
+
+            livro['titulo'] = dados.get('titulo', livro['titulo'])
+            livro['autor'] = dados.get('autor', livro['autor'])
+            livro['ano'] = dados.get('ano', livro['ano'])
+
+            return {
+                "mensagem": "Livro atualizado com sucesso",
+                "livro": livro
+            }
+
+    return {"erro": "Livro não encontrado"}, 404
+
+
+
+@app.route('/livros/<int:id>', methods=['DELETE'])
+def deletar_livro(id):
+    for livro in livros:
+        if livro['id'] == id:
+            livros.remove(livro)
+            return {"mensagem": "Livro removido com sucesso"}
+
+    return {"erro": "Livro não encontrado"}, 404
+
 
 if __name__ == '__main__':
     app.run(debug=True)
