@@ -6,78 +6,176 @@
 }
 
 body{
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    min-height: 100vh;
-    padding: 40px;
-    color: white;
+    background-color: #f4f6f9;
+    color: #333;
 }
+
+
+
+.topo{
+    background: linear-gradient(90deg, #2563eb, #4f86ff);
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.topo h1{
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.topo p{
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+
 
 .container{
-    max-width: 900px;
-    margin: auto;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-h1{
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 40px;
-}
 
-.subtitulo{
-    text-align: center;
-    margin-bottom: 30px;
-    color: #cbd5e1;
-}
-
-button{
+.btn{
     display: block;
-    margin: auto;
+    margin: 0 auto 40px auto;
+
     padding: 14px 28px;
+
     border: none;
-    border-radius: 10px;
-    background-color: #38bdf8;
-    color: #0f172a;
+    border-radius: 8px;
+
+    background-color: #2563eb;
+    color: white;
+
     font-size: 16px;
     font-weight: bold;
+
     cursor: pointer;
+
     transition: 0.3s;
 }
 
-button:hover{
-    transform: scale(1.05);
-    background-color: #0ea5e9;
+.btn:hover{
+    background-color: #1d4ed8;
+    transform: scale(1.03);
 }
 
-.usuarios{
-    margin-top: 40px;
+/* TÍTULO USUÁRIOS */
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.titulo-lista{
+    margin-bottom: 25px;
+    font-size: 30px;
+    color: #222;
+}
+
+
+
+#usuarios{
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
+
+
 .card{
-    background-color: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: white;
 
-    padding: 20px;
-    border-radius: 15px;
+    border-radius: 12px;
 
-    backdrop-filter: blur(5px);
+    padding: 25px;
 
-    transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+    border: 1px solid #ddd;
 }
 
-.card:hover{
-    transform: translateY(-5px);
+
+
+.info-nome{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.card h2{
-    margin-bottom: 15px;
-    color: #38bdf8;
+
+
+.avatar{
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background-color: #dbeafe;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #2563eb;
 }
 
-.card p{
-    margin-bottom: 8px;
-    color: #e2e8f0;
+.nome{
+    font-size: 28px;
+    color: #222;
+}
+
+
+
+.info{
+    min-width: 220px;
+}
+
+.info span{
+    display: block;
+    color: #777;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.info p{
+    font-size: 20px;
+    color: #333;
+}
+
+/* RODAPÉ */
+
+footer{
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+
+    color: #666;
+    background-color: #e9edf5;
+}
+
+
+
+@media(max-width: 768px){
+
+    .card{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .nome{
+        font-size: 24px;
+    }
+
+    .info p{
+        font-size: 18px;
+    }
+
 }
