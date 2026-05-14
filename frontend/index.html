@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Painel de Contatos</title>
+    
+    <title>Lista de Usuários</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
+    <header class="topo">
 
-        <h1>Painel de Contatos</h1>
+        <h1>Lista de Usuários</h1>
 
-        <p class="subtitulo">Clique no botão para carregar os usuários da API.</p>
-        
+        <p>Clique no botão para carregar os usuários da API.</p>
 
-        <button id="btnUsuarios">Buscar Usuários</button>
+    </header>
 
-        <div id="usuarios" class="usuarios"></div>
+    <main class="container">
 
-    </div>
+        <button class="btn" id="buscar">Buscar Usuários</button>
+
+        <h2 class="titulo-lista">Usuários</h2>
+
+        <div id="usuarios"></div>
+
+    </main>
+
+    <footer>Projeto - SPA consumindo API própria com Flask</footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
