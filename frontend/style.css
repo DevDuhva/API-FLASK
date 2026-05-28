@@ -1,181 +1,123 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-body{
-    background-color: #f4f6f9;
+    background: #f4f6f9;
     color: #333;
+    padding: 30px;
 }
 
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
 
-
-.topo{
-    background: linear-gradient(90deg, #2563eb, #4f86ff);
-    color: white;
-    padding: 35px 20px;
+h1 {
     text-align: center;
+    margin-bottom: 30px;
+    color: #222;
 }
 
-.topo h1{
-    font-size: 42px;
-    margin-bottom: 10px;
+.busca {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.topo p{
-    font-size: 18px;
-    opacity: 0.9;
-}
-
-
-
-.container{
-    max-width: 1100px;
-    margin: 40px auto;
+form {
+    background: white;
     padding: 20px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    margin-bottom: 20px;
 }
 
-
-.btn{
-    display: block;
-    margin: 0 auto 40px auto;
-
-    padding: 14px 28px;
-
-    border: none;
+input,
+textarea,
+button {
+    padding: 12px;
     border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
 
-    background-color: #2563eb;
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button {
+    background: #4f46e5;
     color: white;
-
-    font-size: 16px;
-    font-weight: bold;
-
+    border: none;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #4338ca;
+}
+
+#mensagem {
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+#listaLivros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 
     transition: 0.3s;
 }
 
-.btn:hover{
-    background-color: #1d4ed8;
-    transform: scale(1.03);
+.card:hover {
+    transform: translateY(-5px);
 }
 
-/* TÍTULO USUÁRIOS */
-
-.titulo-lista{
-    margin-bottom: 25px;
-    font-size: 30px;
-    color: #222;
+.card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
 }
 
+.card h2 {
+    padding: 15px 15px 5px;
+}
 
+.card p {
+    padding: 5px 15px;
+}
 
-#usuarios{
+.acoes {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+
+    padding: 15px;
 }
 
-
-
-.card{
-    background-color: white;
-
-    border-radius: 12px;
-
-    padding: 25px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-
-    border: 1px solid #ddd;
+.delete {
+    background: #dc2626;
 }
 
-
-
-.info-nome{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-
-
-.avatar{
-    width: 70px;
-    height: 70px;
-
-    border-radius: 50%;
-
-    background-color: #dbeafe;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 28px;
-    font-weight: bold;
-
-    color: #2563eb;
-}
-
-.nome{
-    font-size: 28px;
-    color: #222;
-}
-
-
-
-.info{
-    min-width: 220px;
-}
-
-.info span{
-    display: block;
-    color: #777;
-    margin-bottom: 6px;
-    font-size: 14px;
-}
-
-.info p{
-    font-size: 20px;
-    color: #333;
-}
-
-/* RODAPÉ */
-
-footer{
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-
-    color: #666;
-    background-color: #e9edf5;
-}
-
-
-
-@media(max-width: 768px){
-
-    .card{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .nome{
-        font-size: 24px;
-    }
-
-    .info p{
-        font-size: 18px;
-    }
-
+.delete:hover {
+    background: #b91c1c;
 }

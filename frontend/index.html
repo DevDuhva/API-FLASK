@@ -1,35 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Lista de Usuários</title>
+    <title>Biblioteca</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header class="topo">
+    <div class="container">
 
-        <h1>Lista de Usuários</h1>
+        <h1>Biblioteca</h1>
 
-        <p>Clique no botão para carregar os usuários da API.</p>
+        <div class="busca">
 
-    </header>
+            <input
+                type="text"
+                id="campoBusca"
+                placeholder="Buscar livro..."
+            >
 
-    <main class="container">
+            <button onclick="buscarLivros()">
+                Buscar
+            </button>
 
-        <button class="btn" id="buscar">Buscar Usuários</button>
+        </div>
 
-        <h2 class="titulo-lista">Usuários</h2>
 
-        <div id="usuarios"></div>
+        <form id="formLivro">
 
-    </main>
+            <input
+                type="text"
+                id="titulo"
+                placeholder="Título"
+                required
+            >
 
-    <footer>Projeto - SPA consumindo API própria com Flask</footer>
+            <input
+                type="text"
+                id="autor"
+                placeholder="Autor"
+                required
+            >
+
+            <input
+                type="text"
+                id="categoria"
+                placeholder="Categoria"
+            >
+
+            <input
+                type="number"
+                id="ano"
+                placeholder="Ano"
+            >
+
+            <input
+                type="number"
+                id="avaliacao"
+                placeholder="Avaliação"
+            >
+
+            <textarea
+                id="descricao"
+                placeholder="Descrição"
+            ></textarea>
+
+            <input
+                type="text"
+                id="imagem"
+                placeholder="URL da capa"
+            >
+
+            <button type="submit">
+                Salvar Livro
+            </button>
+
+        </form>
+
+        <p id="mensagem"></p>
+
+        <div id="listaLivros"></div>
+
+    </div>
 
     <script src="script.js"></script>
 
